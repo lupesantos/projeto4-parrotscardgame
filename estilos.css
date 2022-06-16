@@ -22,11 +22,8 @@ header{
     line-height: 65.63px;
 
 }
-.container{
-    display: none;
-}
 
-main{
+ul{
     display: flex;
     flex-wrap: wrap;
 }
@@ -39,18 +36,63 @@ main{
     height: 146px;
     border-radius: 5px;
     background-color: #A7E9AF;
-    border: 1px solid #99CEA8 ;
-
+    border: 1px solid #99CEA8;
+    transition:transform .5s;
 }
+
+
 
 .papagaiobox img{
     width: 100px;
+}
+
+.papagaiobox img:nth-child(2){
+    position: fixed;
+    opacity: 0;
+}
+
+.revelaPapagaio{
+    transform: rotateY(180deg);
+    cursor: pointer;
     
 }
 
+.revelaPapagaio img:nth-child(2){
+    opacity: 1;
+    transform: rotateY(180deg);
+    
+}
+.revelaPapagaio img:nth-child(1){
+    opacity: 0;
+    
+}
+
+/* .contador{
+    color: #28493c;
+    text-align: center;
+    align-items: center;
+    font-size: 40px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    height: 100px;
+    
+}
+
+.caixinha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 100%;
+    background-color:#A7E9AF;
+    border: 1px solid #99CEA8;
+    border-radius: 30px;
+} */
+
 @media (max-width: 335px){
 
-    main {
+    ul {
         align-items: center;
         justify-content: center;
     }
@@ -58,5 +100,8 @@ main{
     .papagaiobox{
         margin: 17px 30px;
     }
+
+    /* .contador{
+        font-size: 30px;
+    } */
 }
-    
