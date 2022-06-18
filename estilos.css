@@ -4,14 +4,13 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #EEF9BF;
 }
-
-
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 header{
+    padding: 0 100px;
     text-align: center;
     width: 100%;
     display: flex;
@@ -20,9 +19,7 @@ header{
     font-size: 56px;
     font-weight: 700;
     line-height: 65.63px;
-
 }
-
 ul{
     display: flex;
     flex-wrap: wrap;
@@ -39,69 +36,55 @@ ul{
     border: 1px solid #99CEA8;
     transition:transform .5s;
 }
-
-
-
 .papagaiobox img{
     width: 100px;
 }
-
 .papagaiobox img:nth-child(2){
     position: fixed;
     opacity: 0;
 }
-
 .revelaPapagaio{
     transform: rotateY(180deg);
-    cursor: pointer;
-    
+    cursor: pointer; 
 }
-
 .revelaPapagaio img:nth-child(2){
     opacity: 1;
     transform: rotateY(180deg);
-    
 }
 .revelaPapagaio img:nth-child(1){
-    opacity: 0;
-    
+    opacity: 0;   
 }
-
-/* .contador{
-    color: #28493c;
-    text-align: center;
-    align-items: center;
-    font-size: 40px;
-    width: 100%;
-    display: inline-flex;
-    justify-content: center;
-    height: 100px;
-    
-}
-
-.caixinha{
+.cronometro {
+    width: 100px;
+    height: 50px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 350px;
-    height: 100%;
+    justify-content: center;
     background-color:#A7E9AF;
     border: 1px solid #99CEA8;
-    border-radius: 30px;
-} */
-
+    border-radius: 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
 @media (max-width: 335px){
-
     ul {
         align-items: center;
         justify-content: center;
     }
-
     .papagaiobox{
         margin: 17px 30px;
     }
-
-    /* .contador{
+    .contador{
         font-size: 30px;
-    } */
+    }
+    header{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        align-items: center;
+    }
+    .cronometro{
+        position: initial;
+    }
 }

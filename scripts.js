@@ -1,11 +1,13 @@
-
 let nPapagaio=2;
 let i=0;
 let viradas =0;
-let totalcliques = 0;
+let totalcliques = 0
 let arrayDuploN = [];
 let pares;
 let resposta;
+let revela;
+let numero = 0;
+let aux = 1;
 
 while (nPapagaio<4 || nPapagaio>14 || nPapagaio%2==1)
 {
@@ -14,13 +16,29 @@ while (nPapagaio<4 || nPapagaio>14 || nPapagaio%2==1)
     console.log(pares);
 }
 
+    let arrayImg = [`<img src="./arquivos/bobrossparrot.gif" alt="">`,
+                    `<img src="./arquivos/explodyparrot.gif" alt="">`,
+                    `<img src="./arquivos/fiestaparrot.gif" alt="">`,
+                    `<img src="./arquivos/metalparrot.gif" alt="">`,
+                    `<img src="./arquivos/revertitparrot.gif" alt="">`,
+                    `<img src="./arquivos/tripletsparrot.gif" alt="">`,
+                    `<img src="./arquivos/unicornparrot.gif" alt="">`,
+                    ];  
+    let k=0;
+
+    for( let j=0 ; j < (nPapagaio/2); j++)
+    {
+        arrayDuploN[j+k] = `${arrayImg[j]}`;
+        k++;
+        arrayDuploN[j+k] = `${arrayImg[j]}`;
+    }
+
+arrayDuploN.sort(comparador); //embaralha os papagaio dentro do array
+criaPapagaio(); //cria os papagaio na tela
+setInterval(tempo, 1000);
+
 function criaPapagaio()
 {
-    let template = `<li onclick="revelaPapagaio(this)" class="papagaiobox">
-                    <img src="./arquivos/front.png" alt="">
-                    ${arrayImg[i]}
-                    </li>`;
-
     let teste = document.querySelector('ul');
 
     while(i<nPapagaio)
@@ -33,38 +51,6 @@ function criaPapagaio()
         i++;
     }
 }
-    //cria array com os 7 papagaios dentro
-    let arrayImg = [`<img src="./arquivos/bobrossparrot.gif" alt="">`,
-                    `<img src="./arquivos/explodyparrot.gif" alt="">`,
-                    `<img src="./arquivos/fiestaparrot.gif" alt="">`,
-                    `<img src="./arquivos/metalparrot.gif" alt="">`,
-                    `<img src="./arquivos/revertitparrot.gif" alt="">`,
-                    `<img src="./arquivos/tripletsparrot.gif" alt="">`,
-                    `<img src="./arquivos/unicornparrot.gif" alt="">`,
-                    ];
-    
-    
-    let k=0;
-
-    for( let j=0 ; j < (nPapagaio/2); j++)
-    {
-        arrayDuploN[j+k] = `${arrayImg[j]}`;
-        k++;
-        arrayDuploN[j+k] = `${arrayImg[j]}`;
-    }
-
-    function comparador() { 
-        return Math.random() - 0.5; 
-    }
-
-//embaralha os papagaio dentro do array
-arrayDuploN.sort(comparador);
-
-//cria os papagaio na tela
-criaPapagaio();
-
-let revela;
-
 function revelaPapagaio(elemento)
 {
     totalcliques++;
@@ -74,14 +60,13 @@ function revelaPapagaio(elemento)
     revela = document.querySelectorAll(".virada");
 
     //contador = document.querySelector(".caixinha");
-    //contador.innerHTML = `Total Cliques: ${totalcliques}`;
+   // contador.innerHTML = `Total Cliques: ${totalcliques}`;
 
     if(revela.length == 2)
     {
         setTimeout(verificaIguais, 1000);
     }
 }
-
 function verificaIguais()
 {
 
@@ -95,7 +80,7 @@ function verificaIguais()
             console.log(pares);
             if(pares === 0)
             {
-                alert(`Você ganhou com ${totalcliques} cliques!`);
+                alert(`Você ganhou com ${totalcliques} cliques, e levou ${aux} segundos!`);
                 while(resposta !== 'sim' && resposta !== 'não')
                 {
                     resposta = prompt("Você gostaria de recomeçar a partida?");
@@ -113,4 +98,13 @@ function verificaIguais()
         } 
     }
 }
-
+function comparador() 
+{ 
+    return Math.random() - 0.5; 
+}
+function tempo()
+{
+    numero = document.querySelector(".cronometro");
+    numero.innerHTML = aux;
+    aux++;
+}
